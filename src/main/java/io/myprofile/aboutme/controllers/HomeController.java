@@ -18,7 +18,7 @@ import io.myprofile.aboutme.model.Customer;
 import io.myprofile.aboutme.repository.CustomerRepository;
 
 
-@RestController
+@Controller
 public class HomeController {
 	private final CustomerRepository customerRepository;
 	
