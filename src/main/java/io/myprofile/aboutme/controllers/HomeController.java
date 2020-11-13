@@ -41,8 +41,8 @@ public class HomeController {
 //	        return "redirect:/";
 //	    }
 	
-	@PostMapping("/user/query")
-	public ModelAndView Home1(@AuthenticationPrincipal OidcUser user)
+	@PostMapping("user/query")
+	public ModelAndView Home1(@Validated Customer customer, BindingResult result, Model model)
 	{
 		return new ModelAndView("thanks");
 	}
