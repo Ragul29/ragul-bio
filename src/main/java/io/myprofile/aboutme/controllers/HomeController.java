@@ -37,7 +37,7 @@ public class HomeController {
 	        }
 
 	        customerRepository.save(customer);
-	        return "redirect:/";
+	        return "landing";
 	    }
 	
 	
