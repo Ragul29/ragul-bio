@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ import io.myprofile.aboutme.repository.CustomerRepository;
 
 
 @RestController
-@CrossOrigin 
 public class HomeController {
 	@Autowired
 	private final CustomerRepository customerRepository;
@@ -32,18 +30,22 @@ public class HomeController {
 	}
 	
 	
-	@CrossOrigin 
-	@PostMapping("/user/query")
-	    public String addStudent(@AuthenticationPrincipal Customer customer, BindingResult result, Model model) {
-	        if (result.hasErrors()) {
-	            return "landing";
-	        }
 
-	        customerRepository.save(customer);
-	        return "redirect:/";
-	    }
+//	@PostMapping("/user/query")
+//	    public String addStudent(@Validated Customer customer, BindingResult result, Model model) {
+//	        if (result.hasErrors()) {
+//	            return "landing";
+//	        }
+//
+//	        customerRepository.save(customer);
+//	        return "redirect:/";
+//	    }
 	
-	
+	@PostMapping("/user/query")
+	public ModelAndView Home1(@AuthenticationPrincipal OidcUser user)
+	{
+		return new ModelAndView("thanks");
+	}
 
 	@RequestMapping("/")
 	public ModelAndView Home(@AuthenticationPrincipal OidcUser user)
