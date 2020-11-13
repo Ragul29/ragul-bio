@@ -20,6 +20,7 @@ import io.myprofile.aboutme.repository.CustomerRepository;
 
 @RestController
 public class HomeController {
+	@Autowired
 	private final CustomerRepository customerRepository;
 	
 	@Autowired
@@ -31,7 +32,7 @@ public class HomeController {
 	
 
 	@PostMapping("/user/query")
-	    public String addStudent(@Validated Customer customer, BindingResult result, Model model) {
+	    public String addStudent(@AuthenticationPrincipal Customer customer, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
 	            return "landing";
 	        }
@@ -43,7 +44,7 @@ public class HomeController {
 	
 
 	@RequestMapping("/")
-	public ModelAndView Home()
+	public ModelAndView Home(@AuthenticationPrincipal OidcUser user)
 	{
 		return new ModelAndView("landing");
 	}
