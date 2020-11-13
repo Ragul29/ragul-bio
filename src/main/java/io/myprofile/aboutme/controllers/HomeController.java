@@ -2,8 +2,8 @@ package io.myprofile.aboutme.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+//import org.springframework.security.core.annotation.AuthenticationPrincipal;
+//import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,7 +18,7 @@ import io.myprofile.aboutme.model.Customer;
 import io.myprofile.aboutme.repository.CustomerRepository;
 
 
-@RestController
+@Controller
 public class HomeController {
 	@Autowired
 	private final CustomerRepository customerRepository;
@@ -44,7 +44,7 @@ public class HomeController {
 	
 
 	@RequestMapping("/")
-	public ModelAndView Home(@AuthenticationPrincipal OidcUser user)
+	public ModelAndView Home()
 	{
 		return new ModelAndView("landing");
 	}
