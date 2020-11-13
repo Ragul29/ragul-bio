@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
+
 @ComponentScan(basePackages={"io.myprofile.aboutme.controllers"})
 public class BioApplication {
 

@@ -18,7 +18,7 @@ import io.myprofile.aboutme.model.Customer;
 import io.myprofile.aboutme.repository.CustomerRepository;
 
 
-@Controller
+@RestController
 public class HomeController {
 	private final CustomerRepository customerRepository;
 	
@@ -37,13 +37,13 @@ public class HomeController {
 	        }
 
 	        customerRepository.save(customer);
-	        return "landing";
+	        return "redirect:/";
 	    }
 	
 	
 
-	@GetMapping("/")
-	public ModelAndView Home(@AuthenticationPrincipal OidcUser user)
+	@RequestMapping("/")
+	public ModelAndView Home()
 	{
 		return new ModelAndView("landing");
 	}
