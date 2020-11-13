@@ -31,21 +31,17 @@ public class HomeController {
 	
 	
 
-//	@PostMapping("/user/query")
-//	    public String addStudent(@Validated Customer customer, BindingResult result, Model model) {
-//	        if (result.hasErrors()) {
-//	            return "landing";
-//	        }
-//
-//	        customerRepository.save(customer);
-//	        return "redirect:/";
-//	    }
+	@PostMapping("/user/query")
+	    public String addStudent(@Validated Customer customer, BindingResult result, Model model) {
+	        if (result.hasErrors()) {
+	            return "landing";
+	        }
+
+	        customerRepository.save(customer);
+	        return "redirect:/";
+	    }
 	
-	@PostMapping("user/query")
-	public ModelAndView Home1(@Validated Customer customer, BindingResult result, Model model)
-	{
-		return new ModelAndView("thanks");
-	}
+	
 
 	@RequestMapping("/")
 	public ModelAndView Home(@AuthenticationPrincipal OidcUser user)
