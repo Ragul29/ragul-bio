@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import io.myprofile.aboutme.model.Customer;
 
 public interface CustomerRepository extends MongoRepository<Customer, String> {
-	 List<Customer> findByName(String name); 
+//	 List<Customer> findByName(String name); 
 
 }
